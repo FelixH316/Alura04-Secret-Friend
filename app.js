@@ -27,10 +27,13 @@ function agregarAmigo()
 function displayList()
 {
     displayString = ""
-    
+    lastElement = false;
+
     for (let i = 0; i < friends_list.length; i++)
     {
-        displayString += `${friends_list[i]}, `;
+        (i+1) >= friends_list.length ? lastElement = true : lastElement = false;
+        displayString += `${friends_list[i]}${lastElement == false ? ", " : "."}`;
+        lastElement = false;
     }
     assignTextElement("ul", displayString);
 }
