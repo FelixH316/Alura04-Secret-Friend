@@ -20,7 +20,19 @@ function agregarAmigo()
     {
         friends_list.push(friend);
         cleanField("amigo");
+        displayList();
     }
+}
+
+function displayList()
+{
+    displayString = ""
+    
+    for (let i = 0; i < friends_list.length; i++)
+    {
+        displayString += `${friends_list[i]}, `;
+    }
+    assignTextElement("ul", displayString);
 }
 
 function cleanField(id)
