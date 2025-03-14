@@ -20,6 +20,7 @@ Steps to install and set up your project.
 
 ## Usage
 Instructions on how to use the project with examples.
+- Look at the right and open the deployment link.
 - Type the name of a friend in the text field and press the "Add" button.
 - Add as much friends as you want.
 - When you're ready hit the "raffle a buddy" button and see who is your secret friend.
