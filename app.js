@@ -6,9 +6,9 @@ DATE:       2025-03-13
 PROJECT:    SECRET FRIEND
 */
 
-let friends_list = []
+let friendsList = []
 
-function agregarAmigo()
+function addBuddy()
 {
     let friend = document.getElementById("amigo").value;
 
@@ -18,7 +18,7 @@ function agregarAmigo()
     }
     else
     {
-        friends_list.push(friend);
+        friendsList.push(friend);
         cleanField("amigo");
         displayList();
     }
@@ -29,13 +29,36 @@ function displayList()
     displayString = ""
     lastElement = false;
 
-    for (let i = 0; i < friends_list.length; i++)
+    for (let i = 0; i < friendsList.length; i++)
     {
-        (i+1) >= friends_list.length ? lastElement = true : lastElement = false;
-        displayString += `${friends_list[i]}${lastElement == false ? ", " : "."}`;
+        (i+1) >= friendsList.length ? lastElement = true : lastElement = false;
+        displayString += `${friendsList[i]}${lastElement == false ? ", " : "."}`;
         lastElement = false;
     }
     assignTextElement("ul", displayString);
+}
+
+function raffleFriend()
+{
+    if (friendsList.length > 1)
+    {
+        randomy = Math.random();
+        console.log(randomy);
+        randomy *= friendsList.length;
+        console.log(randomy);
+        index = Math.floor(randomy);
+        console.log(index);
+        //index = Math.floor(Math.random() * friends_list.length);
+        assignTextElement("ul", `Your secret friend is: ${friendsList[index]}`);
+    }
+    else if (friendsList.length == 1)
+    {
+        assignTextElement("ul", `Your secret friend is: ${friendsList[0]}`);
+    }
+    else
+    {
+        assignTextElement("ul", `In order to have a secret friend, you first need some buddies`);
+    }
 }
 
 function cleanField(id)
